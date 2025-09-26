@@ -1,20 +1,36 @@
 // ===== JavaScript لموقع الوسائط المتعددة =====
 
 // ===== شاشة الترحيب =====
+// ===== شاشة الترحيب (مرة واحدة لكل جلسة) =====
 function showWelcomeScreen() {
     const welcomeScreen = document.getElementById('welcomeScreen');
+    const hasSeenWelcome = sessionStorage.getItem('hasSeenWelcome');
     
-    // إظهار الشاشة لمدة 2.5 ثانية ثم إخفاؤها
-    setTimeout(() => {
-        welcomeScreen.classList.add('hidden');
-        
-        // إزالة الشاشة completamente بعد انتهاء الانتقال
-        setTimeout(() => {
+    if (welcomeScreen) {
+        // إذا لم ير الشاشة في هذه الجلسة
+        if (!hasSeenWelcome) {
+            console.log('عرض شاشة الترحيب - أول مرة في الجلسة');
+            
+            // إظهار الشاشة
+            welcomeScreen.style.display = 'flex';
+            
+            // إخفاء الشاشة بعد 2.5 ثانية
+            setTimeout(() => {
+                welcomeScreen.classList.add('hidden');
+                
+                setTimeout(() => {
+                    welcomeScreen.style.display = 'none';
+                    //标记 أنه رأى الشاشة
+                    sessionStorage.setItem('hasSeenWelcome', 'true');
+                }, 500);
+            }, 2500);
+        } else {
+            // إذا رأى الشاشة من قبل في هذه الجلسة
+            console.log('شوهدت الشاشة من قبل - إخفاء');
             welcomeScreen.style.display = 'none';
-        }, 500);
-    }, 2500);
+        }
+    }
 }
-
 // تشغيل شاشة الترحيب عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', function() {
     showWelcomeScreen();
@@ -170,3 +186,4 @@ document.addEventListener('DOMContentLoaded', function() {
 // استدعاء وظيفة عداد الزوار عند تحميل الصفحة
 
 updateVisitorCount();
+
