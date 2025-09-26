@@ -2,25 +2,36 @@
 
 // ===== شاشة الترحيب =====
 // ===== شاشة الترحيب (مرة واحدة لكل جلسة) =====
-// ===== شاشة الترحيب (مرة واحدة في اليوم) =====
-// ===== شاشة الترحيب (للتطوير - تظهر دائماً) =====
 function showWelcomeScreen() {
     const welcomeScreen = document.getElementById('welcomeScreen');
     
     if (welcomeScreen) {
-        console.log('وضع التطوير - عرض الشاشة دائماً');
+        // التحقق إذا كان قد شاهد الشاشة في هذه الجلسة
+        const hasSeenWelcome = sessionStorage.getItem('hasSeenWelcome');
         
-        // إظهار الشاشة
-        welcomeScreen.style.display = 'flex';
-        
-        // إخفاء الشاشة بعد 2.5 ثانية
-        setTimeout(() => {
-            welcomeScreen.classList.add('hidden');
+        if (!hasSeenWelcome) {
+            console.log('عرض شاشة الترحيب - أول مرة في الجلسة');
             
+            // إظهار الشاشة
+            welcomeScreen.style.display = 'flex';
+            welcomeScreen.classList.remove('hidden');
+            
+            // إخفاء الشاشة بعد 2.5 ثانية
             setTimeout(() => {
-                welcomeScreen.style.display = 'none';
-            }, 500);
-        }, 2500);
+                welcomeScreen.classList.add('hidden');
+                
+                // إزالة الشاشة completamente بعد انتهاء الانتقال
+                setTimeout(() => {
+                    welcomeScreen.style.display = 'none';
+                    // وضع علامة أنه رأى الشاشة في هذه الجلسة
+                    sessionStorage.setItem('hasSeenWelcome', 'true');
+                }, 500);
+            }, 2500);
+        } else {
+            // إذا رأى الشاشة من قبل في هذه الجلسة
+            console.log('شوهدت الشاشة من قبل - إخفاء');
+            welcomeScreen.style.display = 'none';
+        }
     }
 }
 // تشغيل شاشة الترحيب عند تحميل الصفحة
@@ -178,6 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // استدعاء وظيفة عداد الزوار عند تحميل الصفحة
 
 updateVisitorCount();
+
 
 
 
