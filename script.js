@@ -1,6 +1,27 @@
 // ===== JavaScript لموقع الوسائط المتعددة =====
 
-// وضع ليلي/نهاري
+// ===== شاشة الترحيب =====
+function showWelcomeScreen() {
+    const welcomeScreen = document.getElementById('welcomeScreen');
+    
+    // إظهار الشاشة لمدة 2.5 ثانية ثم إخفاؤها
+    setTimeout(() => {
+        welcomeScreen.classList.add('hidden');
+        
+        // إزالة الشاشة completamente بعد انتهاء الانتقال
+        setTimeout(() => {
+            welcomeScreen.style.display = 'none';
+        }, 500);
+    }, 2500);
+}
+
+// تشغيل شاشة الترحيب عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    showWelcomeScreen();
+    
+    // الكود الحالي يبقى كما هو...
+    // لا تحذف أي كود موجود، فقط أضف هذا في البداية
+});
 let darkMode = false;
 
 function toggleDarkMode() {
@@ -147,4 +168,5 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(applyDarkModeFixes, 500);
 });
 // استدعاء وظيفة عداد الزوار عند تحميل الصفحة
+
 updateVisitorCount();
