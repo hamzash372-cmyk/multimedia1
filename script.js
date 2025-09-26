@@ -3,27 +3,33 @@
 // ===== شاشة الترحيب =====
 // ===== شاشة الترحيب (مرة واحدة لكل جلسة) =====
 // ===== شاشة الترحيب (بديل مؤكد) =====
+// ===== شاشة الترحيب (باستخدام URL) =====
 function showWelcomeScreen() {
     const welcomeScreen = document.getElementById('welcomeScreen');
+    const urlParams = new URLSearchParams(window.location.search);
+    const welcomeShown = urlParams.get('welcome');
     
     if (welcomeScreen) {
-        // استخدام طريقة أكثر موثوقية
-        if (sessionStorage.getItem('welcomeShown') !== 'true') {
+        if (!welcomeShown) {
+            console.log('أول دخول - عرض الشاشة');
+            
             // إظهار الشاشة
             welcomeScreen.style.display = 'flex';
-            welcomeScreen.style.opacity = '1';
             
             setTimeout(() => {
-                // إخفاء مع تأثير
-                welcomeScreen.style.opacity = '0';
-                welcomeScreen.style.transition = 'opacity 0.5s ease';
-                
+                welcomeScreen.classList.add('hidden');
                 setTimeout(() => {
                     welcomeScreen.style.display = 'none';
-                    sessionStorage.setItem('welcomeShown', 'true');
+                    // إضافة parameter إلى URL لمنع الظهور مرة أخرى
+                    if (!window.location.search.includes('welcome')) {
+                        const newUrl = window.location.href + (window.location.search ? '&' : '?') + 'welcome=shown';
+                        window.history.replaceState({}, '', newUrl);
+                    }
                 }, 500);
             }, 2500);
         } else {
+            // إذا سبق وعُرضت الشاشة
+            console.log('سبق العرض - إخفاء');
             welcomeScreen.style.display = 'none';
         }
     }
@@ -183,6 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // استدعاء وظيفة عداد الزوار عند تحميل الصفحة
 
 updateVisitorCount();
+
 
 
 
