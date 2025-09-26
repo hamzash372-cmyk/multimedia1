@@ -1009,4 +1009,42 @@ footer {
         width: 250px;
     }
 }
+/* تأثير التمرير السلس */
+html {
+    scroll-behavior: smooth;
+}
+
+/* تنسيق القوائم المنسدلة */
+.dropdown-menu {
+    background: white;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.dropdown-item {
+    color: #333;
+    padding: 10px 20px;
+    border-right: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background: #f8f9fa;
+    color: #1a237e;
+    border-right: 3px solid #1a237e;
+}
+
+/* تحسين للوضع الليلي */
+.dark-mode .dropdown-menu {
+    background: #2d2d2d;
+}
+
+.dark-mode .dropdown-item {
+    color: #e0e0e0;
+}
+
+.dark-mode .dropdown-item:hover {
+    background: #404040;
+    color: #3498db;
+}
 
