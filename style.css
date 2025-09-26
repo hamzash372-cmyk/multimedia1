@@ -29,6 +29,27 @@ body {
     padding: 1rem 0;
     transition: var(--transition);
 }
+.navbar-brand img {
+    margin-left: 10px;
+    border-radius: 5px;
+    transition: var(--transition);
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.1);
+}
+
+/* تحسين الشعار في الجوال */
+@media (max-width: 768px) {
+    .navbar-brand img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+}
 
 .navbar-brand {
     font-weight: 700;
@@ -760,3 +781,4 @@ body.dark-mode {
 .dark-mode .placeholder-image {
     background: var(--dark-bg) !important;
 }
+
