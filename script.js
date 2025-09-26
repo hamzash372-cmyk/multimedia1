@@ -3,35 +3,24 @@
 // ===== شاشة الترحيب =====
 // ===== شاشة الترحيب (مرة واحدة لكل جلسة) =====
 // ===== شاشة الترحيب (مرة واحدة في اليوم) =====
+// ===== شاشة الترحيب (للتطوير - تظهر دائماً) =====
 function showWelcomeScreen() {
     const welcomeScreen = document.getElementById('welcomeScreen');
-    const lastVisit = localStorage.getItem('lastVisit');
-    const today = new Date().toDateString();
     
     if (welcomeScreen) {
-        // إذا كان هذه أول زيارة اليوم، أو لم يزر من قبل
-        if (!lastVisit || lastVisit !== today) {
-            console.log('عرض شاشة الترحيب - أول زيارة اليوم');
+        console.log('وضع التطوير - عرض الشاشة دائماً');
+        
+        // إظهار الشاشة
+        welcomeScreen.style.display = 'flex';
+        
+        // إخفاء الشاشة بعد 2.5 ثانية
+        setTimeout(() => {
+            welcomeScreen.classList.add('hidden');
             
-            // إظهار الشاشة
-            welcomeScreen.style.display = 'flex';
-            
-            // إخفاء الشاشة بعد 2.5 ثانية
             setTimeout(() => {
-                welcomeScreen.classList.add('hidden');
-                
-                // إزالة الشاشة completamente بعد انتهاء الانتقال
-                setTimeout(() => {
-                    welcomeScreen.style.display = 'none';
-                    // حفظ تاريخ الزيارة
-                    localStorage.setItem('lastVisit', today);
-                }, 500);
-            }, 2500);
-        } else {
-            // إذا زار اليوم من قبل، لا تظهر الشاشة
-            console.log('تم الزيارة اليوم - إخفاء الشاشة');
-            welcomeScreen.style.display = 'none';
-        }
+                welcomeScreen.style.display = 'none';
+            }, 500);
+        }, 2500);
     }
 }
 // تشغيل شاشة الترحيب عند تحميل الصفحة
@@ -189,5 +178,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // استدعاء وظيفة عداد الزوار عند تحميل الصفحة
 
 updateVisitorCount();
+
 
 
