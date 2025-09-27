@@ -13,31 +13,45 @@
     <!-- الهيدر -->
     <header class="bg-dark">
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-    <img src="images/image-removebg-preview.webp" alt="شعار الوسائط المتعددة" width="85" height="85" class="logo-glow">
-    <span>نظم الوسائط المتعددة</span>
-</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">الرئيسية</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">عن المقرر</a>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-outline-secondary me-2" id="darkModeBtn" onclick="toggleDarkMode()">
-                            🌙 الوضع الليلي
-                        </button>
-                    </li>
-                </ul>
-            </div>
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/image-removebg-preview.webp" alt="شعار الوسائط المتعددة" width="85" height="85" class="logo-glow"> <span>نظم الوسائط المتعددة</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <!-- قائمة الرئيسية (بدون dropdown) -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">الرئيسية</a>
+                </li>
+                
+                <!-- قائمة عن المقرر (dropdown للصفحة الحالية) -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="aboutDropdown" role="button" 
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        عن المقرر
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                        <li><a class="dropdown-item" href="#course-intro">مقدمة المقرر</a></li>
+                        <li><a class="dropdown-item" href="#topics-section">الموضوعات الرئيسية</a></li>
+                        <li><a class="dropdown-item" href="#applications-section">التطبيقات العملية</a></li>
+                        <li><a class="dropdown-item" href="#objectives-section">الأهداف التعليمية</a></li>
+                    </ul>
+                </li>
+                
+                <!-- زر الوضع الليلي -->
+                <li class="nav-item">
+                    <button class="btn btn-outline-secondary me-2" id="darkModeBtn" onclick="toggleDarkMode()">
+                        🌙 الوضع الليلي
+                    </button>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 </header>
 
     <!-- قسم مقدمة عن المقرر -->
@@ -180,6 +194,7 @@
 </body>
 
 </html>
+
 
 
 
