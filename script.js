@@ -189,6 +189,40 @@ document.addEventListener('DOMContentLoaded', function() {
 // استدعاء وظيفة عداد الزوار عند تحميل الصفحة
 
 updateVisitorCount();
+// تحسين التنقل بين الأقسام
+function smoothScrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+        element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+        
+        // إغلاق القائمة المنسدلة بعد النقر (على الجوال)
+        const dropdowns = document.querySelectorAll('.dropdown-menu');
+        dropdowns.forEach(dropdown => {
+            dropdown.classList.remove('show');
+        });
+    }
+}
+
+// إضافة event listeners للروابط
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdownLinks = document.querySelectorAll('.dropdown-item');
+    
+    dropdownLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // إذا كان الرابط لنفس الصفحة (#section)
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const sectionId = href.substring(1);
+                smoothScrollToSection(sectionId);
+            }
+        });
+    });
+});
 
 
 
