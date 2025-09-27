@@ -225,36 +225,39 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// إعادة فتح القوائم المنسدلة عند العودة للصفحة
-function autoOpenDropdowns() {
-    // عند تحميل الصفحة، افتح القائمة النشطة تلقائياً
-    const currentPage = window.location.pathname;
-    
-    if (currentPage.includes('index.html') || currentPage === '/') {
-        // في الصفحة الرئيسية، افتح dropdown الرئيسية
-        setTimeout(() => {
+//حل القوائم المنسدلة
+function initializeDropdowns() {
+    // تهيئة جميع القوائم المنسدلة في Bootstrap
+    const dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+    const dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+        return new bootstrap.Dropdown(dropdownToggleEl);
+    });
+
+    // عند تحميل الصفحة، افتح القائمة المناسبة
+    setTimeout(() => {
+        const currentPage = window.location.pathname;
+        
+        if (currentPage.includes('index.html') || currentPage === '/') {
+            // في الصفحة الرئيسية، افتح dropdown الرئيسية
             const mainDropdown = document.getElementById('mainDropdown');
             if (mainDropdown) {
-                const dropdown = new bootstrap.Dropdown(mainDropdown);
-                dropdown.show();
+                mainDropdown.click(); // Simulate click to open
             }
-        }, 100);
-    } else if (currentPage.includes('about.html')) {
-        // في صفحة about، افتح dropdown عن المقرر
-        setTimeout(() => {
+        } else if (currentPage.includes('about.html')) {
+            // في صفحة about، افتح dropdown عن المقرر
             const aboutDropdown = document.getElementById('aboutDropdown');
             if (aboutDropdown) {
-                const dropdown = new bootstrap.Dropdown(aboutDropdown);
-                dropdown.show();
+                aboutDropdown.click(); // Simulate click to open
             }
-        }, 100);
-    }
+        }
+    }, 300);
 }
 
 // استدعاء عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', function() {
-    autoOpenDropdowns();
+    initializeDropdowns();
 });
+
 
 
 
