@@ -225,39 +225,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-//حل القوائم المنسدلة
-function initializeDropdowns() {
-    // تهيئة جميع القوائم المنسدلة في Bootstrap
-    const dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
-    const dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
-        return new bootstrap.Dropdown(dropdownToggleEl);
-    });
-
-    // عند تحميل الصفحة، افتح القائمة المناسبة
-    setTimeout(() => {
-        const currentPage = window.location.pathname;
-        
-        if (currentPage.includes('index.html') || currentPage === '/') {
-            // في الصفحة الرئيسية، افتح dropdown الرئيسية
-            const mainDropdown = document.getElementById('mainDropdown');
-            if (mainDropdown) {
-                mainDropdown.click(); // Simulate click to open
-            }
-        } else if (currentPage.includes('about.html')) {
-            // في صفحة about، افتح dropdown عن المقرر
-            const aboutDropdown = document.getElementById('aboutDropdown');
-            if (aboutDropdown) {
-                aboutDropdown.click(); // Simulate click to open
-            }
-        }
-    }, 300);
-}
-
-// استدعاء عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', function() {
-    initializeDropdowns();
-});
-
 
 
 
