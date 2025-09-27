@@ -225,6 +225,36 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+// إعادة فتح القوائم المنسدلة عند العودة للصفحة
+function autoOpenDropdowns() {
+    // عند تحميل الصفحة، افتح القائمة النشطة تلقائياً
+    const currentPage = window.location.pathname;
+    
+    if (currentPage.includes('index.html') || currentPage === '/') {
+        // في الصفحة الرئيسية، افتح dropdown الرئيسية
+        setTimeout(() => {
+            const mainDropdown = document.getElementById('mainDropdown');
+            if (mainDropdown) {
+                const dropdown = new bootstrap.Dropdown(mainDropdown);
+                dropdown.show();
+            }
+        }, 100);
+    } else if (currentPage.includes('about.html')) {
+        // في صفحة about، افتح dropdown عن المقرر
+        setTimeout(() => {
+            const aboutDropdown = document.getElementById('aboutDropdown');
+            if (aboutDropdown) {
+                const dropdown = new bootstrap.Dropdown(aboutDropdown);
+                dropdown.show();
+            }
+        }, 100);
+    }
+}
+
+// استدعاء عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    autoOpenDropdowns();
+});
 
 
 
