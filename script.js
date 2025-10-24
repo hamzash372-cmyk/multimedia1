@@ -223,83 +223,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-// ===== التحكم المتقدم بالفيديو =====
-let videoPlaying = false;
 
-function togglePlayPause() {
-    const video = document.querySelector('.educational-video');
-    if (video) {
-        if (video.paused || video.ended) {
-            video.play();
-            videoPlaying = true;
-            console.log('تشغيل الفيديو');
-        } else {
-            video.pause();
-            videoPlaying = false;
-            console.log('إيقاف الفيديو');
-        }
-    }
-}
 
-function toggleFullscreen() {
-    const video = document.querySelector('.educational-video');
-    const container = document.querySelector('.video-container');
-    
-    if (container) {
-        if (!document.fullscreenElement) {
-            container.requestFullscreen().catch(err => {
-                console.log(`خطأ في ملء الشاشة: ${err.message}`);
-            });
-        } else {
-            document.exitFullscreen();
-        }
-    }
-}
-
-function restartVideo() {
-    const video = document.querySelector('.educational-video');
-    if (video) {
-        video.currentTime = 0;
-        video.play();
-        videoPlaying = true;
-        console.log('إعادة تشغيل الفيديو');
-    }
-}
-
-// التحكم التلقائي بالفيديو
-document.addEventListener('DOMContentLoaded', function() {
-    const video = document.querySelector('.educational-video');
-    
-    if (video) {
-        // النقر على الفيديو للتشغيل/الإيقاف
-        video.addEventListener('click', togglePlayPause);
-        
-        // التحكم بالمسافة (Spacebar)
-        document.addEventListener('keydown', function(e) {
-            if (e.code === 'Space' && document.activeElement !== video) {
-                e.preventDefault();
-                togglePlayPause();
-            }
-        });
-        
-        // تحديث حالة التشغيل
-        video.addEventListener('play', function() {
-            videoPlaying = true;
-            console.log('الفيديو يعمل');
-        });
-        
-        video.addEventListener('pause', function() {
-            videoPlaying = false;
-            console.log('الفيديو متوقف');
-        });
-        
-        // عند انتهاء الفيديو
-        video.addEventListener('ended', function() {
-            videoPlaying = false;
-            console.log('انتهى الفيديو');
-        });
-    }
-});
 
 
 
