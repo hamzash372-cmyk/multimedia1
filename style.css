@@ -1443,3 +1443,144 @@ html {
         height: 180px;
     }
 }
+/* ===== تنسيقات صفحة about ===== */
+.about-hero-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    margin-left: 20px;
+}
+
+.about-hero-image:hover {
+    transform: scale(1.02);
+}
+
+.about-main-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.about-image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 25px 20px 15px;
+    text-align: center;
+}
+
+.about-image-overlay span {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* ميزات المقرر */
+.intro-features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    border-right: 3px solid #1a237e;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateX(10px);
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    text-align: center;
+}
+
+.feature-item span:last-child {
+    font-weight: 500;
+    color: #333;
+}
+
+/* للوضع الليلي */
+.dark-mode .feature-item {
+    background: rgba(255,255,255,0.05);
+    border-right-color: #3498db;
+}
+
+.dark-mode .feature-item:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.dark-mode .feature-item span:last-child {
+    color: #e0e0e0;
+}
+
+/* تحسين للجوال */
+@media (max-width: 991px) {
+    .about-hero-image {
+        margin-left: 0;
+        margin-top: 30px;
+    }
+    
+    .about-main-image {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-main-image {
+        height: 300px;
+    }
+    
+    .about-image-overlay {
+        padding: 20px 15px 12px;
+    }
+    
+    .about-image-overlay span {
+        font-size: 1.1rem;
+    }
+    
+    .intro-features {
+        gap: 10px;
+    }
+    
+    .feature-item {
+        padding: 10px 12px;
+    }
+    
+    .feature-icon {
+        font-size: 1.3rem;
+        width: 35px;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-main-image {
+        height: 250px;
+    }
+    
+    .feature-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+    
+    .feature-item:hover {
+        transform: translateY(-5px);
+    }
+}
