@@ -1584,3 +1584,137 @@ html {
         transform: translateY(-5px);
     }
 }
+
+/* ===== إصلاح تنسيقات الصور ===== */
+
+/* الصورة الرئيسية في الهيرو */
+.hero-main-image {
+    width: 100%;
+    height: 400px;
+    object-fit: contain; /* غير من cover إلى contain */
+    display: block;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.hero-image-container {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    background: #f8f9fa; /* خلفية إذا كانت الصورة شفافة */
+}
+
+/* الصورة في صفحة about */
+.about-main-image {
+    width: 100%;
+    height: 400px;
+    object-fit: contain; /* غير من cover إلى contain */
+    display: block;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.about-hero-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    background: #f8f9fa;
+    margin-left: 20px;
+}
+
+/* صور المعرض - إصلاح كامل */
+.gallery-image {
+    width: 100%;
+    height: 250px;
+    object-fit: contain; /* غير من cover إلى contain */
+    display: block;
+    background: #f8f9fa;
+    transition: transform 0.3s ease;
+    padding: 10px; /* مسافة داخلية */
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 270px; /* زدنا الارتفاع ليتناسب مع contain */
+    background: #f8f9fa; /* خلفية إذا كانت الصورة شفافة */
+    border: 1px solid #e9ecef;
+}
+
+.gallery-item:hover .gallery-image {
+    transform: scale(1.05); /* تكبير بسيط بدلاً من 1.1 */
+}
+
+/* تحسين overlay للمعرض */
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(26, 35, 126, 0.85), rgba(57, 73, 171, 0.95));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+    text-align: center;
+}
+
+/* للوضع الليلي */
+.dark-mode .hero-image-container,
+.dark-mode .about-hero-image,
+.dark-mode .gallery-item {
+    background: #2d2d2d;
+    border-color: #404040;
+}
+
+.dark-mode .hero-main-image,
+.dark-mode .about-main-image,
+.dark-mode .gallery-image {
+    background: #2d2d2d;
+}
+
+/* تحسين للجوال */
+@media (max-width: 768px) {
+    .hero-main-image,
+    .about-main-image {
+        height: 300px;
+        object-fit: contain;
+    }
+    
+    .gallery-image {
+        height: 200px;
+        object-fit: contain;
+    }
+    
+    .gallery-item {
+        height: 220px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-main-image,
+    .about-main-image {
+        height: 250px;
+        object-fit: contain;
+    }
+    
+    .gallery-image {
+        height: 180px;
+        object-fit: contain;
+    }
+    
+    .gallery-item {
+        height: 200px;
+    }
+}
