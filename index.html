@@ -141,33 +141,30 @@
         </div>
     </section>
 
-    <!-- قسم الفيديو التعليمي -->
-    <section class="video-section py-5" id="video-section">
-        <!-- في قسم الفيديو، بعد video-placeholder -->
-<div class="text-center mt-3">
-    <button class="btn btn-primary" onclick="toggleVideo()">
-        تشغيل/إيقاف الفيديو
-    </button>
-    <button class="btn btn-outline-secondary ms-2" onclick="toggleDarkMode()">
-        الوضع الليلي
-    </button>
-</div>
-        <div class="container">
-            <h2 class="section-title text-center mb-5">فيديو تعليمي</h2>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="video-placeholder">
-                        <!-- الفيديو سيضاف هنا لاحقاً -->
-                        🎥 مكان الفيديو التعليمي
-                    </div>
-                    <div class="video-description mt-3">
-                        <p>شرح مفصل عن تقنيات الوسائط المتعددة</p>
-                    </div>
+    <!-- قسم الفيديو التعليمي - النسخة المؤكدة -->
+<section class="video-section py-5" id="video-section">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">فيديو تعليمي</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <!-- الفيديو الأساسي -->
+                <div class="video-player">
+                    <video controls width="100%">
+                        <source src="videos/videosAI.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
+                <!-- معلومات الفيديو -->
+                <div class="video-meta text-center mt-4">
+                    <h4>فيديو تعليمي عن الوسائط المتعددة</h4>
+                    <p class="text-muted">شرح مفصل عن تقنيات الوسائط المتعددة وتطبيقاتها</p>
                 </div>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
+    
     <!-- قسم الذكاء الاصطناعي -->
     <section class="ai-section py-5 bg-light" id="ai-section">
         <div class="container">
@@ -218,6 +215,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
