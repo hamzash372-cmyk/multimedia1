@@ -1,9 +1,4 @@
-// ===== JavaScript لموقع الوسائط المتعددة =====
 
-// ===== شاشة الترحيب =====
-// ===== شاشة الترحيب (مرة واحدة لكل جلسة) =====
-// ===== شاشة الترحيب (بديل مؤكد) =====
-// ===== شاشة الترحيب (باستخدام URL) =====
 function showWelcomeScreen() {
     const welcomeScreen = document.getElementById('welcomeScreen');
     const urlParams = new URLSearchParams(window.location.search);
@@ -38,8 +33,6 @@ function showWelcomeScreen() {
 document.addEventListener('DOMContentLoaded', function() {
     showWelcomeScreen();
     
-    // الكود الحالي يبقى كما هو...
-    // لا تحذف أي كود موجود، فقط أضف هذا في البداية
 });
 let darkMode = false;
 
@@ -48,13 +41,13 @@ function toggleDarkMode() {
     const darkModeBtn = document.getElementById('darkModeBtn');
     
     if (!darkMode) {
-        // تفعيل الوضع الليلي
+        // تفعيل الوضع الليلي ذكاء صنعي
         body.classList.add('dark-mode');
         darkModeBtn.innerHTML = '☀️ الوضع النهاري';
         darkMode = true;
         localStorage.setItem('darkMode', 'enabled');
     } else {
-        // إلغاء الوضع الليلي
+        // إلغاء الوضع الليلي ذكاء صنعي
         body.classList.remove('dark-mode');
         darkModeBtn.innerHTML = '🌙 الوضع الليلي';
         darkMode = false;
@@ -62,7 +55,7 @@ function toggleDarkMode() {
     }
 }
 
-// تحميل تفضيل الوضع الليلي عند بدء التشغيل
+// تحميل تفضيل الوضع الليلي عند بدء التشغيل ذكاء صنعي
 function loadDarkModePreference() {
     const savedMode = localStorage.getItem('darkMode');
     const darkModeBtn = document.getElementById('darkModeBtn');
@@ -78,10 +71,10 @@ function loadDarkModePreference() {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('موقع الوسائط المتعددة جاهز!');
     
-    // تحميل تفضيل الوضع الليلي
+    // تحميل تفضيل الوضع الليلي ذكاء صنعي
     loadDarkModePreference();
     
-    // تأثيرات للبطاقات عند التمرير
+    // تأثيرات للبطاقات عند التمرير ذكاء صنعي
     const mediaCards = document.querySelectorAll('.media-card, .topic-card, .app-card, .team-card');
     
     mediaCards.forEach(card => {
@@ -94,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // تغيير لون الهيدر عند التمرير
+    // تغيير لون الهيدر عند التمرير ذكاء صنعي
     window.addEventListener('scroll', function() {
         const header = document.querySelector('header');
         if (window.scrollY > 100) {
@@ -106,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // تأثيرات التمرير (Fade-in)
+    // تأثيرات التمرير (Fade-in) ذكاء صنعي
     const fadeElements = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -135,17 +128,6 @@ function toggleVideo() {
     }
 }
 
-// عدّاد زوار بسيط
-function updateVisitorCount() {
-    let count = localStorage.getItem('visitorCount') || 0;
-    count = parseInt(count) + 1;
-    localStorage.setItem('visitorCount', count);
-    
-    const visitorElement = document.getElementById('visitorCount');
-    if (visitorElement) {
-        visitorElement.textContent = `عدد الزوار: ${count}`;
-    }
-}
 // إصلاح شامل للوضع الليلي
 function applyDarkModeFixes() {
     if (document.body.classList.contains('dark-mode')) {
@@ -160,7 +142,7 @@ function applyDarkModeFixes() {
     }
 }
 
-// تحديث الدالة toggleDarkMode
+// تحديث ذكاء
 function toggleDarkMode() {
     const body = document.body;
     const darkModeBtn = document.getElementById('darkModeBtn');
@@ -177,16 +159,16 @@ function toggleDarkMode() {
         localStorage.setItem('darkMode', 'disabled');
     }
     
-    // تطبيق الإصلاحات بعد التبديل
+    // تطبيق الإصلاحات بعد التبديل ذكاء
     setTimeout(applyDarkModeFixes, 100);
 }
 
-// تطبيق الإصلاحات عند التحميل
+// تطبيق الإصلاحات عند التحميل ذكاء
 document.addEventListener('DOMContentLoaded', function() {
     loadDarkModePreference();
     setTimeout(applyDarkModeFixes, 500);
 });
-// استدعاء وظيفة عداد الزوار عند تحميل الصفحة
+// استدعاء وظيفة عداد الزوار عند تحميل الصفحة 
 
 updateVisitorCount();
 // تحسين التنقل بين الأقسام
@@ -198,7 +180,7 @@ function smoothScrollToSection(sectionId) {
             block: 'start'
         });
         
-        // إغلاق القائمة المنسدلة بعد النقر (على الجوال)
+        // (على الجوال)
         const dropdowns = document.querySelectorAll('.dropdown-menu');
         dropdowns.forEach(dropdown => {
             dropdown.classList.remove('show');
@@ -223,6 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
 
 
 
