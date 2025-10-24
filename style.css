@@ -1048,3 +1048,54 @@ html {
     color: #3498db;
 }
 
+/* تنسيقات الفيديو - النسخة البسيطة */
+.video-player {
+    background: #000;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+}
+
+.video-player video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.video-meta {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+}
+
+.video-meta h4 {
+    color: #1a237e;
+    margin-bottom: 10px;
+}
+
+/* للوضع الليلي */
+.dark-mode .video-meta {
+    background: #2d2d2d;
+    border-color: #404040;
+    color: #e0e0e0;
+}
+
+.dark-mode .video-meta h4 {
+    color: #3498db;
+}
+
+/* تحسين للجوال */
+@media (max-width: 768px) {
+    .video-player {
+        border-radius: 10px;
+        margin: 0 10px;
+    }
+    
+    .video-meta {
+        margin: 0 10px;
+        padding: 15px;
+    }
+}
+
