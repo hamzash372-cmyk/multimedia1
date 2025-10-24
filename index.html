@@ -141,41 +141,32 @@
         </div>
     </section>
 
-   <!-- قسم الفيديو التعليمي -->
-<section class="video-section py-5" id="video-section">
-    <div class="container">
-        <h2 class="section-title text-center mb-5">فيديو تعليمي</h2>
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="video-container">
-                    <video controls width="100%" class="educational-video" poster="images/video-poster.jpg">
-                        <source src="videos/videosAI.mp4" type="video/mp4">
-                        <source src="videos/videosAI.webm" type="video/webm">
-                        متصفحك لا يدعم تشغيل الفيديو. يرجى استخدام متصفح حديث.
-                    </video>
-                    <div class="video-controls">
-                        <button class="btn btn-primary mt-3 me-2" onclick="togglePlayPause()">
-                            ⏯️ تشغيل/إيقاف
-                        </button>
-                        <button class="btn btn-outline-secondary mt-3 me-2" onclick="toggleFullscreen()">
-                            ⛶ ملء الشاشة
-                        </button>
-                        <button class="btn btn-outline-info mt-3" onclick="restartVideo()">
-                            🔄 إعادة التشغيل
-                        </button>
+    <!-- قسم الفيديو التعليمي -->
+    <section class="video-section py-5" id="video-section">
+        <!-- في قسم الفيديو، بعد video-placeholder -->
+<div class="text-center mt-3">
+    <button class="btn btn-primary" onclick="toggleVideo()">
+        تشغيل/إيقاف الفيديو
+    </button>
+    <button class="btn btn-outline-secondary ms-2" onclick="toggleDarkMode()">
+        الوضع الليلي
+    </button>
+</div>
+        <div class="container">
+            <h2 class="section-title text-center mb-5">فيديو تعليمي</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="video-placeholder">
+                        <!-- الفيديو سيضاف هنا لاحقاً -->
+                        🎥 مكان الفيديو التعليمي
                     </div>
-                </div>
-                <div class="video-info mt-4">
-                    <h4>فيديو تعليمي عن الوسائط المتعددة</h4>
-                    <p class="text-muted">شرح مفصل عن تقنيات الوسائط المتعددة وتطبيقاتها العملية</p>
-                    <div class="video-stats">
-                        <small class="text-muted">مدة الفيديو: 1-2 دقيقة</small>
+                    <div class="video-description mt-3">
+                        <p>شرح مفصل عن تقنيات الوسائط المتعددة</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- قسم الذكاء الاصطناعي -->
     <section class="ai-section py-5 bg-light" id="ai-section">
