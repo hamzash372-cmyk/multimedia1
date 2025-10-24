@@ -1048,3 +1048,99 @@ html {
     color: #3498db;
 }
 
+/* ===== تنسيقات الفيديو الجديدة ===== */
+.video-container {
+    background: #000;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.educational-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 2px solid #333;
+}
+
+.video-controls {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.video-info {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.video-info h4 {
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+.video-stats {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+/* تحسين الفيديو في الجوال */
+@media (max-width: 768px) {
+    .video-container {
+        border-radius: 10px;
+        margin: 0 10px;
+    }
+    
+    .video-controls {
+        padding: 15px;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .video-controls .btn {
+        width: 100%;
+        margin: 2px 0;
+    }
+    
+    .educational-video {
+        max-height: 250px;
+    }
+}
+
+/* تنسيقات للوضع الليلي */
+.dark-mode .video-info {
+    background: #2d2d2d;
+    color: #e0e0e0;
+}
+
+.dark-mode .video-info h4 {
+    color: #3498db;
+}
+
+.dark-mode .video-stats {
+    border-top-color: #404040;
+}
+
+/* تأثيرات خاصة للفيديو */
+.educational-video::-webkit-media-controls-panel {
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+}
+
+.educational-video::-webkit-media-controls-play-button {
+    background-color: var(--primary-blue);
+    border-radius: 50%;
+}
